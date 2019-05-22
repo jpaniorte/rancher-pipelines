@@ -1,0 +1,9 @@
+stages:
+- name: Build and publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: pipes/nginx:${CICD_GIT_BRANCH}-${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: registry.renr.es
